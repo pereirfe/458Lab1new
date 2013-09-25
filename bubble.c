@@ -5,7 +5,7 @@
 
 void read(int *a, int n) {
   int i;
-  for(i = 0; i < n; i++)
+  for( i=0; i<n; i++)
     scanf(", %d",&a[i]);
 }
 
@@ -26,7 +26,7 @@ int main(int argc, char** argv){
 
   scanf(" %d", &size);
   read(v2,size);
-
+  
   for(n=0; n<REPEAT; n++){
     for(i=0; i<size; i++){
       v[i] = v2[i];
@@ -42,5 +42,7 @@ int main(int argc, char** argv){
       }
     }while(flag);
   }
+
+  prt(v,size);
   return 0;
 }

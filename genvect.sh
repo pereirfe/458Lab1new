@@ -15,7 +15,6 @@ else
     while [ $SIZE -le '1000' ]
     do
 	echo -n "$SIZE" >> "$FILE"
-	echo -n ", "  >> "$FILE"
 	./numgen $SIZE $MODE >> "$FILE"
 	SIZE=`echo "$SIZE + $INCR" | bc`
     done

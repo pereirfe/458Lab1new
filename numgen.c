@@ -71,7 +71,7 @@ int main(int argc, char* argv[] ) {
   }
 
   for(i=0; i<size; i++){
-    printf("%d ", v[i]);
+    printf(", %d", v[i]);
   }
   
   printf("\b\n");
