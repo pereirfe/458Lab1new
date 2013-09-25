@@ -1,7 +1,7 @@
 /**Sort a set of n numbers using quick sort --not optmized**/
 #include <stdio.h>
 #include <stdlib.h>
-
+#include "sort.h"
 
 int *a = 0;
 
@@ -58,7 +58,7 @@ int main(int argc, char **argv) {
 	
   read(b,n);
 	
-  for(j=0; j<5000; j++){
+  for(j=0; j<REPEAT; j++){
     for(i=0; i<n; i++){
       a[i] = b[i];
     }
