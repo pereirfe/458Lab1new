@@ -7,7 +7,7 @@ FILE="file"
 if [ $# -ne 2 ] 
 then    
     echo 'Uso: bash genvect $FILE $MODE'
-    ./numgen 2>&1 | sed -n '2,5p'
+    ./numgen 2>&1 | sed -n '2,30p' #gambiarra
 else
     rm -f "$1"
     FILE=$1

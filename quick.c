@@ -3,9 +3,7 @@
 #include <stdlib.h>
 #include "sort.h"
 
-int *a = 0;
-
-int partit(int l, int r) {
+int partit(int *a, int l, int r) {
   int pivot = a[l];
   int left = l;
   int right = r;
@@ -23,30 +21,30 @@ int partit(int l, int r) {
   return right;
 }
 
-void quickSort(int l, int r) {
+void quickSort(int *a, int l, int r) {
   int pivot;
   if (r > l) {
-    pivot = partit(l,r);
-    quickSort(l,pivot-1);
-    quickSort(pivot+1,r);
+    pivot = partit(a,l,r);
+    quickSort(a,l,pivot-1);
+    quickSort(a,pivot+1,r);
   }
 }
 
-void read(int* b, int n) {
+void read(int* a, int n) {
   int i;
   for(i = 0; i < n; i++)
-    scanf(", %d",&b[i]);
+    scanf(", %d",&a[i]);
 }
 
-void prt(int* b, int n) {
+void prt(int* a, int n) {
   int i;
   for(i = 0; i < n; i++)
-    printf("%d ",b[i]);
+    printf("%d ",a[i]);
 }
 
 
 int main(int argc, char **argv) {
-  int n, i, j, *b;
+  int n, i, j, *b, *a;
 
   scanf(" %d", &n);
   a = (int*)malloc(sizeof(int)*n);
@@ -62,10 +60,9 @@ int main(int argc, char **argv) {
     for(i=0; i<n; i++){
       a[i] = b[i];
     }
-    quickSort(0,n-1);
+    quickSort(a,0,n-1);
   }
 
-  //prt(a,n);
   free(a);
   free(b);
   return 0;

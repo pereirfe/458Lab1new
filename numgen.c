@@ -6,8 +6,9 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+#include "sort.h"
 
-#define MAX 10000000
+#define MAX 100
 
 int ord(const void* a, const void* b){
   if(*(int*)a > *(int*)b) return 1;
@@ -32,10 +33,10 @@ int main(int argc, char* argv[] ) {
   char opt;
   int *v;
   int max;
-
+  int half, buffer;
 
   if(argc != 3 ){
-    fprintf(stderr, "Uso: ./numgen tamanho tipo\n\t a: aleatorio\n\t o: ordenado\n\t r: ordenado reverso\n\t i: iguais\n\n");
+    fprintf(stderr, "Uso: ./numgen tamanho tipo\n\t a: aleatorio\n\t o: ordenado\n\t r: ordenado reverso\n\t i: iguais\n\t t: alternado\n\n");
     exit(-1);
   }
   
@@ -66,6 +67,14 @@ int main(int argc, char* argv[] ) {
       v[i] = v[0];
     }
     break;
+  case 't':
+    half = size/2;
+    qsort(v,size,sizeof(int),ord);
+
+    for(i=1; i<half; i+=2){
+      SWAP(v[i],v[i+half],buffer);
+    }
+    break;
   default:
     puts("ERRO!!!");
   }
@@ -76,5 +85,3 @@ int main(int argc, char* argv[] ) {
   
   printf("\b\n");
 }
-
-
