@@ -1,6 +1,7 @@
 /**Sort a set of n numbers using merge sort --not optmized**/
 #include <stdio.h>
 #include <stdlib.h>
+#include "sort.h"
 
 //Merge two halves of the array
 void mergeS(int *a, int n) {
@@ -56,20 +57,14 @@ void mergeSort(int *a, int n) {
 void read(int *a, int n) {
   int i;
   for(i = 0; i < n; i++)
-    scanf("%d",&a[i]);
+    scanf(", %d",&a[i]);
 }
 
 
 int main(int argc, char **argv) {
   int n, i, j;
 
-  if( argc != 2 ){
-    fprintf(stderr, "Uso: ./merge N");
-    exit(-1);
-  }
-
-  n = atoi(argv[1]);
-
+  scanf(" %d", &n);
   int *a = (int*)malloc(sizeof(int)*n);
   int *b = (int*)malloc(sizeof(int)*n);
   if (a == NULL || b == NULL){
@@ -79,7 +74,7 @@ int main(int argc, char **argv) {
 	
   read(b,n);
 	
-  for(j=0; j<5000; j++){
+  for(j=0; j<REPEAT; j++){
     for(i=0; i<n; i++){
       a[i] = b[i];
     }

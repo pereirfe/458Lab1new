@@ -35,26 +35,26 @@ void quickSort(int l, int r) {
 void read(int* b, int n) {
   int i;
   for(i = 0; i < n; i++)
-    scanf("%d",&b[i]);
+    scanf(", %d",&b[i]);
+}
+
+void prt(int* b, int n) {
+  int i;
+  for(i = 0; i < n; i++)
+    printf("%d ",b[i]);
 }
 
 
 int main(int argc, char **argv) {
   int n, i, j, *b;
 
-  if( argc != 2 ){
-    fprintf(stderr, "Uso: ./quick N");
-    exit(-1);
-  }
-  n = atoi(argv[1]);
+  scanf(" %d", &n);
   a = (int*)malloc(sizeof(int)*n);
   b = (int*)malloc(sizeof(int)*n);
   if (a == NULL || b == NULL){
     puts("Malloc falhou!");
     exit(1);
   }
-	
-
 	
   read(b,n);
 	
@@ -65,10 +65,7 @@ int main(int argc, char **argv) {
     quickSort(0,n-1);
   }
 
-  //	for(i=0;i<n; i+=10000){
-  // printf("%d ", a[i]);
-  //}
-
+  //prt(a,n);
   free(a);
   free(b);
   return 0;

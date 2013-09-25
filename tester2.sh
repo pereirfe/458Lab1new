@@ -6,6 +6,10 @@ then
     echo '$output = /dev/tty: STDOUT'
 
 else 
-    (time -p `./$1 $2 < $3` ) 2>&1 | grep user | cut -c 6- | tr -d '\n' >> $4
+    x=`echo "$2 / 20" | bc` 
+    y=`echo "$x + 1" | bc`
+    sed -n "${y}q;${x},${x}p" < "$3" > ___tmp
+    (time -p `./$1 < ___tmp` ) 2>&1 | grep user | cut -c 6- | tr -d '\n' >> $4
     echo -ne ";" >> $4
+    rm -f ___tmp
 fi

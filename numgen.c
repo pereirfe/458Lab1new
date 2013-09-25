@@ -35,7 +35,7 @@ int main(int argc, char* argv[] ) {
 
 
   if(argc != 3 ){
-    fprintf(stderr, "Uso: ./numgen tamanho tipo\n\t a: aleatorio\n\t b: o: ordenado\n\t r: ordenado reverso\n\n");
+    fprintf(stderr, "Uso: ./numgen tamanho tipo\n\t a: aleatorio\n\t o: ordenado\n\t r: ordenado reverso\n\t i: iguais\n\n");
     exit(-1);
   }
   
@@ -60,6 +60,11 @@ int main(int argc, char* argv[] ) {
     break;
   case 'r':
     qsort(v,size,sizeof(int),rev);
+    break;
+  case 'i':
+    for(i=1; i<size; i++){
+      v[i] = v[0];
+    }
     break;
   default:
     puts("ERRO!!!");

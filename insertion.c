@@ -8,7 +8,7 @@
 void read(int *a, int n) {
   int i;
   for(i = 0; i < n; i++)
-    scanf("%d",&a[i]);
+    scanf(", %d",&a[i]);
 }
 
 int main(int argc, char** argv){
@@ -18,13 +18,8 @@ int main(int argc, char** argv){
   int size;
   int* v = (int*)malloc(sizeof(int)*size);
   int* v2= (int*)malloc(sizeof(int)*size);
-  
-  if( argc != 2 ){
-    fprintf(stderr, "Uso: ./bubble N");
-    exit(-1);
-  }
 
-  size = atoi(argv[1]);
+  scanf(" %d", &size);
   read(v2,size);
 
   for(m=0; m<REPEAT; m++){

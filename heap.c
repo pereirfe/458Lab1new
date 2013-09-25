@@ -12,7 +12,7 @@
 void read(int *a, int n) {
   int i;
   for(i = 0; i < n; i++)
-    scanf("%d",&a[i]);
+    scanf(", %d",&a[i]);
 }
 
 void restore(int v[], int root, int size){
@@ -58,7 +58,7 @@ int main(int argc, char** argv){
     exit(-1);
   }
 
-  size = atoi(argv[1]);
+  scanf(" %d", &size);
   read(v,size);
 
   /* Heap construction */
@@ -78,12 +78,9 @@ int main(int argc, char** argv){
     restore(v, 0, i-1);
   }  
 
-#ifdef DEBUG
   for(j=0; j<size; j++){
     printf("%d,", v[j]);
   }
-  puts("\b");
-#endif
   
   return 0;
 }

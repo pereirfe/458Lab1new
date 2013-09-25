@@ -4,17 +4,20 @@ SIZE=20
 INCR=20
 FILE="file"
 
-if [ $# -eq 1 ] 
+if [ $# -ne 2 ] 
 then    
+    echo 'Uso: bash genvect $FILE $MODE'
+    ./numgen 2>&1 | sed -n '2,5p'
+else
+    rm -f "$1"
     FILE=$1
-    echo "$FILE"
+    MODE=$2
+    while [ $SIZE -le '1000' ]
+    do
+	echo -n "$SIZE" >> "$FILE"
+	echo -n ", "  >> "$FILE"
+	./numgen $SIZE $MODE >> "$FILE"
+	SIZE=`echo "$SIZE + $INCR" | bc`
+    done
 fi
-
-while [ $SIZE -le '1000' ]
-do
-    touch "file_$SIZE"
-    ./numgen $SIZE >> "${FILE}_$SIZE.txt"
-    SIZE=`echo "$SIZE + $INCR" | bc`
-done
-
 
