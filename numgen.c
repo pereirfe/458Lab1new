@@ -1,14 +1,14 @@
 /* Prints a random numbers' vector of size given */
 /* By Fernando Pereira, 05/09/2013               */
 
-
+#include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
 #include "sort.h"
 
-#define MAX 100
+#define MAX 10000
 
 int ord(const void* a, const void* b){
   if(*(int*)a > *(int*)b) return 1;

@@ -19,4 +19,3 @@ else
 	SIZE=`echo "$SIZE + $INCR" | bc`
     done
 fi
-

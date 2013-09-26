@@ -1,21 +1,22 @@
 #!/bin/bash
 
-i=0
 
-#while [ $i -ne 30 ]
-#do 
- #   ./numgen 1000000 a >> 30kk.txt
-  #  echo "AT $i"
-   # i=`echo "$i + 1" | bc`
-#done
+#bash executer.sh bubble 20 1000 5 Aleatorios.txt BUBBLE_A.csv
+#bash executer.sh insertion 20 1000 5 Aleatorios.txt INSERTION_A.csv
+#bash executer.sh merge 20 1000 5 Aleatorios.txt MERGE_A.csv
+bash executer.sh quick 20 1000 5 3REV.txt QUICK_3R.csv
 
-./numgen 100000 a > 100k.txt
 
-#bash executer.sh merge 2000 100000 3 100k.txt 0913merge_100k.csv
 
-bash executer.sh quick 20000 1000000 3 100k.txt 0916quick_10_ak.csv
+#bash vectmpc.sh 10 100 o > Bubble_M.txt
+#bash vectmpc.sh 10 100 o > Insertion_M.txt
+#bash vectmpc.sh 10 100 o > Merge_M.txt
+#bash vectmpc.sh 10 100 i > Quick_M.txt
+#bash vectmpc.sh 10 100 r > Heap_M.txt
+#bash vectmpc.sh 10 100 r > Bubble_P.txt
+#bash vectmpc.sh 10 100 r > Insertion_P.txt
+#bash vectmpc.sh 10 100 t > Merge_P.txt
+#bash vectmpc.sh 10 100 r > Quick_P.txt
+#bash vectmpc.sh 10 100 o > Heap_P.txt
 
-#bash executer.sh bubble 2000 100000 3 100k_r.txt 0913bubble_100k_r.csv
-
-#bash executer.sh insertion 2000 100000 3 100k_r.txt 0913insertion_100k_r.csv
 

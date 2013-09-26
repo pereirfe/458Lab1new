@@ -4,7 +4,7 @@
 void read(int *a, int n) {
   int i;
   for(i = 0; i < n; i++)
-    scanf("%d",&a[i]);
+    scanf(" %d",&a[i]);
 }
 
 int main(int argc, char** argv){
@@ -25,8 +25,12 @@ int main(int argc, char** argv){
 
   for(i=1; i<n; i++){
     if( a[i] < a[i-1] ){
+      puts("FAIL");
       return -1;
     }
   }
+
+  puts("OK!");
+
   return 0;
 }

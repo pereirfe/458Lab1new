@@ -1,0 +1,3 @@
+
+BUBBLE: ordenado invertido 
+INSERTION: ordenado invertido
