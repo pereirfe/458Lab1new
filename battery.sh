@@ -1,11 +1,11 @@
 #!/bin/bash
 
-
+make
 #bash executer.sh bubble 20 1000 5 Aleatorios.txt BUBBLE_A.csv
 #bash executer.sh insertion 20 1000 5 Aleatorios.txt INSERTION_A.csv
 #bash executer.sh merge 20 1000 5 Aleatorios.txt MERGE_A.csv
-bash executer.sh quick 20 1000 5 3REV.txt QUICK_3R.csv
-
+bash executer.sh betterquick 20 1000 5 Aleatorios.txt BETTERQUICK_A.csv
+#bash executer.sh heap 20 1000 5 Aleatorios.txt HEAP_A.csv
 
 
 #bash vectmpc.sh 10 100 o > Bubble_M.txt

@@ -3,6 +3,9 @@
 #include <stdlib.h>
 #include "sort.h"
 
+#define P(x) do{ fprintf(stderr, "PTO %d\n", x); }while(0)
+
+
 int partit(int *a, int l, int r) {
   int pivot = a[l];
   int left = l;
@@ -40,6 +43,8 @@ void prt(int* a, int n) {
   int i;
   for(i = 0; i < n; i++)
     printf("%d ",a[i]);
+  puts("");
+  
 }
 
 
@@ -62,6 +67,8 @@ int main(int argc, char **argv) {
     }
     quickSort(a,0,n-1);
   }
+
+  //prt(a,n);
 
   free(a);
   free(b);

@@ -3,11 +3,11 @@
 #include <stdlib.h>
 #include "sort.h"
 
-#define DEBUG 
 
-#define FATHER(x) ((x)>0? ((((x)+1)/2)-1):0)
-#define SON_L(x)  ((2*((x)+1))-1)
-#define SON_R(x)  ((2*((x)+1)))
+#define FATHER(x) (((x)-1)/2)
+#define SON_L(x)  (2*(x) + 1)
+#define SON_R(x)  (2*(x) + 2)
+
 
 void read(int *a, int n) {
   int i;
@@ -44,43 +44,36 @@ void restore(int v[], int root, int size){
       SWAP(v[maxi],v[root],buffer);
       newr=maxi;
     }
-  } while(1); // eliminaรงao de recursao caudal
+    root = newr;
+
+  } while(1); // eliminacao de recursao caudal
 }
 
 int main(int argc, char** argv){
   int i, j, k, buffer, father;
   int size;
-  int* v = (int*)malloc(sizeof(int)*size);
+  int* v;
   int M, sonR, sonL;
   
-  if( argc != 2 ){
-    fprintf(stderr, "Uso: ./heap N");
-    exit(-1);
-  }
-
   scanf(" %d", &size);
   read(v,size);
+  v = (int*)malloc(sizeof(int)*size);
 
-  /* Heap construction */
-  for(i=1; i<size; i++){
-    j=i;
-    father = FATHER(i);
-    while( v[father] < v[j]){
-      SWAP( v[father], v[j], buffer);
-      j = father;
-      father = FATHER(father);
+  for(k=0; k<REPEAT; k++){
+    for(i=1; i<size; i++){  /* Heap construction */
+      j=i;
+      father = FATHER(i);
+      while( v[father] < v[j]){
+	SWAP( v[father], v[j], buffer);
+	j = father;
+	father = FATHER(father);
+      }
     }
-  }
 
-  /* Sorting */  
-  for(i=size-1; i>0; i--){
-    SWAP(v[0], v[i], buffer);
-    restore(v, 0, i-1);
-  }  
-
-  for(j=0; j<size; j++){
-    printf("%d,", v[j]);
+    for(i=1; i<size; i++){     /* Sorting */  
+      SWAP(v[0], v[size-i], buffer);
+      restore(v, 0, (size-i-1));
+    }  
   }
-  
   return 0;
 }

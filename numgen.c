@@ -8,7 +8,8 @@
 #include <string.h>
 #include "sort.h"
 
-#define MAX 10000
+#define MAX 1000
+
 
 int ord(const void* a, const void* b){
   if(*(int*)a > *(int*)b) return 1;

@@ -1,0 +1,10 @@
+  PID TTY           TIME CMD
+10789 ttys000    0:00.05 /bin/bash execBQuick.sh
+11224 ttys000    0:00.00 /bin/bash execBQuick.sh
+11225 ttys000    0:00.00 grep user
+11226 ttys000    0:00.00 cut -c 6-
+11227 ttys000    0:00.00 tr -d \n
+11228 ttys000    0:00.00 /bin/bash execBQuick.sh
+11230 ttys000    0:00.73 ./quick
+83746 ttys001    0:00.02 -bash
+11164 ttys002    0:00.01 /bin/bash z.sh
