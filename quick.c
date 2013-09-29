@@ -10,11 +10,13 @@ int partit(int *a, int l, int r) {
   int pivot = a[r];
   int left = l;
   int right = r;
+  int t;
+
   while(left < right) {
     while(a[left] <= pivot) left++;
     while(a[right] > pivot) right--;
     if (left < right) {
-      int t = a[left];
+      t = a[left];
       a[left] = a[right];
       a[right] = t;
     }
@@ -26,7 +28,7 @@ int partit(int *a, int l, int r) {
 
 void quickSort(int *a, int l, int r) {
   int pivot;
-  if (r > l) {
+  if (l < r) {
     pivot = partit(a,l,r);
     quickSort(a,l,pivot-1);
     quickSort(a,pivot+1,r);
@@ -54,15 +56,15 @@ int main(int argc, char **argv) {
   scanf(" %d", &n);
   a = (int*)malloc(sizeof(int)*n);
   b = (int*)malloc(sizeof(int)*n);
-  if (a == NULL || b == NULL){
+  if (a==NULL || b == NULL){
     puts("Malloc falhou!");
     exit(1);
   }
 	
-  read(b,n);
+  read(a,n);
 	
-  //last = n-1;
-  //for(j=0; j<REPEAT; j++){
+  last = n-1;
+  // for(j=0; j<REPEAT; j++){
   //for(i=0; i<n; i++){
   //  a[i] = b[i];
   //}

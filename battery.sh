@@ -10,7 +10,7 @@ make
 
 
 #bash executer.sh quick 20 1000 5 QUICK_BEST.txt QUICK_BEST_EARTH.csv
-bash executer.sh quick 10000 500000 3 BIGQUICK.txt BIGQUICK.csv
+bash executer.sh quick 10000 500000 1 BIGQUICK.txt BIGQUICK.csv
 
 #bash executer.sh heap 20 1000 5 Aleatorios.txt HEAP_A.csv
 

@@ -4,7 +4,7 @@
 #include "sort.h"
 
 #define MED_IND(v,i,j,k) (MIN_IND((v),(MAX_IND((v),(i),(j))), (MAX_IND((v),(j),(k)))))
-#define SPOT 5
+#define SPOT 200
 
 #define P(x) (printf("\tPOINT %d\n", (x)))
 
@@ -89,7 +89,7 @@ int main(int argc, char **argv) {
   int n, i, j, *b, *a;
 
   scanf(" %d", &n);
-  a = (int*)malloc(sizeof(int)*n);
+  //a = (int*)malloc(sizeof(int)*n);
   b = (int*)malloc(sizeof(int)*n);
   if (a == NULL || b == NULL){
     puts("Malloc falhou!");
@@ -98,16 +98,16 @@ int main(int argc, char **argv) {
 	
   read(b,n);
 	
-  for(j=0; j<REPEAT; j++){
-    for(i=0; i<n; i++){
-      a[i] = b[i];
-    }
-    quickSort(a,0,n-1);
-  }
+  // for(j=0; j<REPEAT; j++){
+  //for(i=0; i<n; i++){
+  //  a[i] = b[i];
+  //}
+    quickSort(b,0,n-1);
+    //}
 
     //  prt(a,n);
 
-  free(a);
+    // free(a);
   free(b);
   return 0;
 }
