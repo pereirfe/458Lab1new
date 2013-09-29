@@ -7,7 +7,7 @@
 
 
 int partit(int *a, int l, int r) {
-  int pivot = a[l];
+  int pivot = a[r];
   int left = l;
   int right = r;
   while(left < right) {
@@ -49,7 +49,7 @@ void prt(int* a, int n) {
 
 
 int main(int argc, char **argv) {
-  int n, i, j, *b, *a;
+  int n, i, j, *b, *a, last;
 
   scanf(" %d", &n);
   a = (int*)malloc(sizeof(int)*n);
@@ -61,14 +61,15 @@ int main(int argc, char **argv) {
 	
   read(b,n);
 	
+  last = n-1;
   for(j=0; j<REPEAT; j++){
     for(i=0; i<n; i++){
       a[i] = b[i];
     }
-    quickSort(a,0,n-1);
+    quickSort(a,0,last);
   }
 
-  //prt(a,n);
+  prt(a,n);
 
   free(a);
   free(b);

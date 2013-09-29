@@ -52,14 +52,21 @@ void restore(int v[], int root, int size){
 int main(int argc, char** argv){
   int i, j, k, buffer, father;
   int size;
-  int* v;
+  int* v, *v2;
   int M, sonR, sonL;
   
   scanf(" %d", &size);
-  read(v,size);
+  
   v = (int*)malloc(sizeof(int)*size);
+  v2= (int*)malloc(sizeof(int)*size);
+ 
+  read(v2,size);
 
   for(k=0; k<REPEAT; k++){
+    for(i=0; i<size; i++){
+      v[i] = v2[i];
+    }
+
     for(i=1; i<size; i++){  /* Heap construction */
       j=i;
       father = FATHER(i);

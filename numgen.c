@@ -8,13 +8,29 @@
 #include <string.h>
 #include "sort.h"
 
-#define MAX 1000
+#define MAX 10000
 
 
 int ord(const void* a, const void* b){
   if(*(int*)a > *(int*)b) return 1;
   return -1;
 }
+
+
+int quickV(int* a, int n){
+  int half = n/2;
+  int buffer;
+  int i;
+
+  if( n > 1 ) {
+    SWAP(a[half],a[n-1],buffer);
+    qsort(a,n-1,sizeof(int),ord);
+    quickV(a, half);
+    quickV(a+half, n-half-1);
+  }
+}
+
+
 
 
 int rev(const void* a, const void* b){
@@ -32,12 +48,13 @@ int ale(const void* a, const void* b){
 int main(int argc, char* argv[] ) {
   int size, i;
   char opt;
-  int *v;
+  int *v, *v2;
   int max;
   int half, buffer;
+  int t = 1;
 
   if(argc != 3 ){
-    fprintf(stderr, "Uso: ./numgen tamanho tipo\n\t a: aleatorio\n\t o: ordenado\n\t r: ordenado reverso\n\t i: iguais\n\t t: alternado\n\n");
+    fprintf(stderr, "Uso: ./numgen tamanho tipo\n\t a: aleatorio\n\t o: ordenado\n\t r: ordenado reverso\n\t i: iguais\n\t t: alternado\n\t m: alternado para merge(pior caso)\n\n");
     exit(-1);
   }
   
@@ -69,13 +86,26 @@ int main(int argc, char* argv[] ) {
     }
     break;
   case 't':
-    half = size/2;
     qsort(v,size,sizeof(int),ord);
+    quickV(v,size);
+    break;
+  case 'm':
+    while(t<size){
+      for(i=0; i<t; i++){
+	v[t+i] = v[i] + 1;
+	v[i]*=2;
+	v[t+i]*=2;
+      }
+      t*=2;
+    }
 
-    for(i=1; i<half; i+=2){
-      SWAP(v[i],v[i+half],buffer);
+    half = size/2;
+    for(i=0; i<half/2; i++){
+      SWAP(v[i],v[half-i-1], buffer);
+      SWAP(v[i+half],v[size-i-1],buffer);
     }
     break;
+
   default:
     puts("ERRO!!!");
   }
@@ -83,6 +113,8 @@ int main(int argc, char* argv[] ) {
   for(i=0; i<size; i++){
     printf(", %d", v[i]);
   }
-  
-  printf("\b\n");
+
+  free(v);
+  free(v2);
+  printf("\n");
 }
