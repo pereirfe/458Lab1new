@@ -1,4 +1,4 @@
-all: heaps quicks bquicks merges bubbles insertion timer verify numgen
+all: heaps quicks bquicks merges bubbles insertion timer verify numgen bettermerges
 
 heaps: heap.c sort.h
 	gcc heap.c sort.h -o heap
@@ -9,6 +9,8 @@ quicks: quick.c sort.h
 bquicks: betterquick.c sort.h
 	gcc betterquick.c sort.h -o betterquick
 
+bettermerges:	bettermerge.c sort.h 
+	gcc bettermerge.c sort.h -o bettermerge
 
 merges:	merge.c sort.h 
 	gcc merge.c sort.h -o merge
@@ -29,4 +31,4 @@ numgen: numgen.c
 	gcc numgen.c -o numgen
 
 clean:
-	rm -f numgen verify timer insertion bubble merge quick heap
+	rm -f numgen verify timer insertion bubble merge quick heap bquicks bettermerges

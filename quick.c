@@ -61,15 +61,15 @@ int main(int argc, char **argv) {
 	
   read(b,n);
 	
-  last = n-1;
-  for(j=0; j<REPEAT; j++){
-    for(i=0; i<n; i++){
-      a[i] = b[i];
-    }
-    quickSort(a,0,last);
-  }
+  //last = n-1;
+  //for(j=0; j<REPEAT; j++){
+  //for(i=0; i<n; i++){
+  //  a[i] = b[i];
+  //}
+  quickSort(a,0,last);
+  //}
 
-  prt(a,n);
+  // prt(a,n);
 
   free(a);
   free(b);
