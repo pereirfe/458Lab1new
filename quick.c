@@ -23,7 +23,7 @@ int partit(int *a, int l, int r) {
     }
   }
   a[l] = a[right];
-  a[right] = pivot;
+  a[right] = pivot; 
   return right;
 }
 
@@ -47,7 +47,6 @@ void prt(int* a, int n) {
   for(i = 0; i < n; i++)
     printf("%d ",a[i]);
   puts("");
-  
 }
 
 
@@ -63,7 +62,7 @@ int main(int argc, char **argv) {
   }
 	
   read(a,n);
-	
+  
   last = n-1;
   for(j=0; j<REPEAT; j++){
     for(i=0; i<n; i++){
@@ -73,7 +72,6 @@ int main(int argc, char **argv) {
   }
 
   // prt(a,n);
-
   free(a);
   free(b);
   return 0;
