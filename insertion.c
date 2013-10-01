@@ -44,5 +44,9 @@ int main(int argc, char** argv){
       }
     }
   }
+
+  
+  free(v);
+  free(v2);
   return 0;
 }

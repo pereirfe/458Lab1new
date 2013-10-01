@@ -40,14 +40,15 @@ int main(int argc, char** argv){
     do{
       flag = 0;
       for(i=1; i<size; i++){
-	if( v[i-1] > v[i] ){
+	if( v[i-1] > v[i] ){ 
 	  SWAP(v[i-1],v[i],buffer);
-	  flag=1;
+	  flag=1; // Sinaliza troca
 	}
       }
-    }while(flag);
+    }while(flag); // Repita se houve alguma troca
   }
 
-  //prt(v,size);
+  free(v);
+  free(v2);
   return 0;
 }

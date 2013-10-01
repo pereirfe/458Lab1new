@@ -3,8 +3,8 @@
 #include <stdlib.h>
 
 #define SWAP(x,y,buffer) do{ (buffer)=(x); (x)=(y); (y)=(buffer); }while(0)
-#define MAX_IND(v,x,y) ((v[x])>(v[y])?(x):(y))
-#define MIN_IND(v,x,y) ((v[x])>(v[y])?(y):(x))
+#define MAX_IND(v,x,y) ((v[(x)])>(v[(y)])?(x):(y))
+#define MIN_IND(v,x,y) ((v[(x)])>(v[(y)])?(y):(x))
 #define REPEAT 5000
 
 int partit(int *a, int l, int r) {

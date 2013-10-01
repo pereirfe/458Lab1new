@@ -27,17 +27,17 @@ void restore(int v[], int root, int size){
     sonL = SON_L(root);
     sonR = SON_R(root);
 
-    if(sonL > size) return;  //sem filhos
+    if(sonL > size) return; //sem filhos
 
-    if(sonR > size){ // lado esquerdo, apenas
+    if(sonR > size){        // lado esquerdo, apenas
       if(v[sonL] < v[root]){
 	return;
       }
 
-      SWAP(v[sonL], v[root], buffer);
-      newr = sonL;  
+      SWAP(v[sonL], v[root], buffer);  
+      newr = sonL;          // Proxima raiz
   
-    } else {
+    } else {                // Dois filhos
       maxi = MAX_IND(v,sonL,sonR);
     
       if(v[maxi] < v[root]) {
@@ -45,7 +45,7 @@ void restore(int v[], int root, int size){
       } 
     
       SWAP(v[maxi],v[root],buffer);
-      newr=maxi;
+      newr=maxi;            // Proxima raiz
     }
     root = newr;
 
@@ -74,7 +74,7 @@ int main(int argc, char** argv){
       j=i;
       father = FATHER(i);
       while( v[father] < v[j]){
-	SWAP( v[father], v[j], buffer);
+	SWAP( v[father], v[j], buffer); 
 	j = father;
 	father = FATHER(father);
       }
@@ -85,5 +85,8 @@ int main(int argc, char** argv){
       restore(v, 0, (size-i-1));
     }  
   }
+
+  free(v);
+  free(v2);
   return 0;
 }

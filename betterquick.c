@@ -16,7 +16,7 @@ int partit(int *a, int l, int r) {
   int right = r;
   
   if( (l - r) >= 2 ){ // pelo menos duas posiçoes
-    pivot = MED_IND(a, l, (l+1), (l+2));
+    pivot = MED_IND(a, l, (l+1), (l+2)); // mediana das tres primeiras posicoes
   }
 
   while(left < right) {
@@ -36,7 +36,6 @@ int partit(int *a, int l, int r) {
 
 void insertionSort(int *v, int size){
   int i, j, k, aux;
-  // P(1);
   for(i=1; i<size; i++){
     for(j=0; j<i; j++){
       if( v[i] < v[j] ){
@@ -93,7 +92,6 @@ int main(int argc, char **argv) {
 	
   read(b,n);
   
-  // prt(b,n);
   for(j=0; j<REPEAT; j++){
     for(i=0; i<n; i++){
       a[i] = b[i];
