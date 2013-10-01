@@ -1,25 +1,25 @@
 all: heaps quicks bquicks merges bubbles insertion timer verify numgen bettermerges
 
-heaps: heap.c sort.h
-	gcc heap.c sort.h -o heap
+heaps: heap.c
+	gcc heap.c -o heap
 
-quicks: quick.c sort.h
-	gcc quick.c sort.h -o quick
+quicks: quick.c
+	gcc quick.c -o quick
 
-bquicks: betterquick.c sort.h
-	gcc betterquick.c sort.h -o betterquick
+bquicks: betterquick.c
+	gcc betterquick.c -o betterquick
 
-bettermerges:	bettermerge.c sort.h 
-	gcc bettermerge.c sort.h -o bettermerge
+bettermerges:	bettermerge.c 
+	gcc bettermerge.c -o bettermerge
 
-merges:	merge.c sort.h 
-	gcc merge.c sort.h -o merge
+merges:	merge.c
+	gcc merge.c -o merge
 
-bubbles: bubble.c sort.h
-	gcc bubble.c sort.h -o bubble
+bubbles: bubble.c
+	gcc bubble.c -o bubble
 
-insertions: insertion.c sort.h
-	gcc insertion.c sort.h -o insertion
+insertions: insertion.c
+	gcc insertion.c -o insertion
 
 timer: timer.cpp
 	g++ timer.cpp -o timer

@@ -1,7 +1,12 @@
 /**Sort a set of n numbers using merge sort --not optmized**/
 #include <stdio.h>
 #include <stdlib.h>
-#include "sort.h"
+
+#define SWAP(x,y,buffer) do{ (buffer)=(x); (x)=(y); (y)=(buffer); }while(0)
+#define MAX_IND(v,x,y) ((v[x])>(v[y])?(x):(y))
+#define MIN_IND(v,x,y) ((v[x])>(v[y])?(y):(x))
+
+#define REPEAT 5000
 
 //Merge two halves of the array
 void mergeS(int *a, int n) {

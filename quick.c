@@ -1,10 +1,11 @@
 /**Sort a set of n numbers using quick sort --not optmized**/
 #include <stdio.h>
 #include <stdlib.h>
-#include "sort.h"
 
-#define P(x) do{ fprintf(stderr, "PTO %d\n", x); }while(0)
-
+#define SWAP(x,y,buffer) do{ (buffer)=(x); (x)=(y); (y)=(buffer); }while(0)
+#define MAX_IND(v,x,y) ((v[x])>(v[y])?(x):(y))
+#define MIN_IND(v,x,y) ((v[x])>(v[y])?(y):(x))
+#define REPEAT 5000
 
 int partit(int *a, int l, int r) {
   int pivot = a[r];
@@ -64,12 +65,12 @@ int main(int argc, char **argv) {
   read(a,n);
 	
   last = n-1;
-  // for(j=0; j<REPEAT; j++){
-  //for(i=0; i<n; i++){
-  //  a[i] = b[i];
-  //}
-  quickSort(a,0,last);
-  //}
+  for(j=0; j<REPEAT; j++){
+    for(i=0; i<n; i++){
+      a[i] = b[i];
+    }
+    quickSort(a,0,last);
+  }
 
   // prt(a,n);
 
